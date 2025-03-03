@@ -6,18 +6,14 @@
 ; Ctrl+Alt+V: Dán với định dạng (tên cho file code)
 ; Alt+T: Chuyển đổi dịch trang web
 
-;---------Mẹo---------------------------
-; Dịch đoạn đã chọn trong Chrome: nhấn nhanh chuột phải + phím T
-; Chuột phải + S để dùng Google Lens cho cả trang web, giúp dịch ngay trên ảnh
-
 ;---------About-------------------------
 #SingleInstance Force
 A_TrayMenu.Add("About", ShowAbout) ; Thêm mục "About" vào menu khay
-A_TrayMenu.Add("Shortcuts", ShowTips) ; Thêm mục "Tips & Shortcuts" vào menu khay
-A_IconTip := "MyHotkey - nvbangg`nAlt+V: Paste Clipboard`nCtrl+Alt+V: Format paste`nAlt+T: Translate (Chrome)" ; Thông tin tooltip trên khay hệ thống
+A_TrayMenu.Add("Shortcuts", ShowTips) ; Thêm mục "Shortcuts" vào menu khay
+A_IconTip := "MyHotkey`nAlt+V: Paste Clipboard`nCtrl+Alt+V: Format paste`nAlt+T: Translate (Chrome)" ; Thông tin tooltip trên khay hệ thống
 
 ShowAbout(*) {
-    result := MsgBox("MyHotkey`nVersion: 1.1`nDate: 01/03/2025`n`nCreated by: facebook.com/nvbangg`nVisit creator's page?", "About MyHotkey", "YesNo")
+    result := MsgBox("MyHotkey`n`nVersion: 1.0`nDate: 03/03/2025`n`nCreated by: facebook.com/nvbangg`nVisit creator's page?", "About MyHotkey", "YesNo")
     if (result = "Yes")
         Run("https://facebook.com/nvbangg")
 }
@@ -27,9 +23,6 @@ ShowTips(*) {
     tipsText .= "Alt+V: Dán nội dung clipboard trước đó`n"
     tipsText .= "Ctrl+Alt+V: Dán với định dạng (tên cho file code)`n"
     tipsText .= "Alt+T: Chuyển đổi dịch trang web`n`n"
-    tipsText .= "--------MẸO--------`n"
-    tipsText .= "Dịch đoạn đã chọn trong Chrome: nhấn nhanh chuột phải + phím T`n"
-    tipsText .= "Chuột phải + phím S để dùng Google Lens cho cả trang web, giúp dịch ngay trên ảnh"
     
     MsgBox(tipsText, "Shortcuts - MyHotkey", "Ok")
 }

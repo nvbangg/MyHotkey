@@ -16,6 +16,7 @@ MyHotkey được tạo ra để tiết kiệm thời gian bằng các phím t�
 3. Để tự khởi động khi mở máy tính, tạo và di chuyển shortcut của file `MyHotkey.exe` đến thư mục:
 `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
 
+- *Nếu bạn đã cài đặt [AutoHotkey v2](https://www.autohotkey.com), có thể sử dụng trực tiếp file `MyHotkey.ahk` (mã nguồn) thay vì `MyHotkey.exe`*
 ## Các phím tắt chính
 | Phím tắt | Chức năng |
 |----------|-----------|

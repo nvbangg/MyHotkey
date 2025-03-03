@@ -13,7 +13,7 @@ MyHotkey được tạo ra để tiết kiệm thời gian bằng các phím t�
 ## Hướng dẫn cài đặt
 1. Tải và chạy file `MyHotkey.exe`
 2. Click vào mục "Shortcuts" trong menu của biểu tượng trên khay icons để xem cách sử dụng
-2. Để tự khởi động khi mở máy tính, tạo và di chuyển shortcut của file `MyHotkey.exe` đến thư mục:
+3. Để tự khởi động khi mở máy tính, tạo và di chuyển shortcut của file `MyHotkey.exe` đến thư mục:
 `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
 
 ## Các phím tắt chính

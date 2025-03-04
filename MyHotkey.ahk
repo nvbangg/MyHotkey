@@ -2,15 +2,15 @@
 #Requires AutoHotkey v2.0
 
 ;---------Tổng hợp phím tắt-------------
-; Alt+V: Dán nội dung clipboard trước đó
-; Ctrl+Alt+V: Dán với định dạng (tên cho file code)
-; Alt+T: Chuyển đổi dịch trang web
+; CapsLock+V: Dán nội dung clipboard trước đó
+; CapsLock+F (format): Dán với định dạng (tên cho file code)
+; CapsLock+T (translate): Chuyển đổi dịch trang web
 
 ;---------About-------------------------
 #SingleInstance Force
 A_TrayMenu.Add("About", ShowAbout) ; Thêm mục "About" vào menu khay
 A_TrayMenu.Add("Shortcuts", ShowTips) ; Thêm mục "Shortcuts" vào menu khay
-A_IconTip := "MyHotkey`nAlt+V: Paste Clipboard`nCtrl+Alt+V: Format paste`nAlt+T: Translate (Chrome)" ; Thông tin tooltip trên khay hệ thống
+A_IconTip := "MyHotkey`nCapsLock+V: Paste Clipboard`nCapsLock+F: Format paste`nCapsLock+T: Translate (Chrome)" ; Thông tin tooltip trên khay hệ thống
 
 ShowAbout(*) {
     result := MsgBox("MyHotkey`n`nVersion: 1.0`nDate: 03/03/2025`n`nCreated by: facebook.com/nvbangg`nVisit creator's page?", "About MyHotkey", "YesNo")
@@ -20,9 +20,9 @@ ShowAbout(*) {
 
 ShowTips(*) {
     tipsText := "--------PHÍM TẮT--------`n"
-    tipsText .= "Alt+V: Dán nội dung clipboard trước đó`n"
-    tipsText .= "Ctrl+Alt+V: Dán với định dạng (tên cho file code)`n"
-    tipsText .= "Alt+T: Chuyển đổi dịch trang web`n`n"
+    tipsText .= "CapsLock+V: Dán nội dung clipboard trước đó`n"
+    tipsText .= "CapsLock+F: Dán với định dạng (tên cho file code)`n"
+    tipsText .= "CapsLock+T: Chuyển đổi dịch trang web`n`n"
     
     MsgBox(tipsText, "Shortcuts - MyHotkey", "Ok")
 }
@@ -69,8 +69,8 @@ RemoveAccents(str) {
     return result
 }
 
-; Alt+V: Dán nội dung clipboard trước đó
-!v:: {
+; CapsLock+V: Dán nội dung clipboard trước đó
+CapsLock & v:: {
     if clipboardHistory.Length >= 2 {
         oldClip := ClipboardAll()
         A_Clipboard := clipboardHistory[2]
@@ -81,8 +81,8 @@ RemoveAccents(str) {
     }
 }
 
-; Ctrl+Alt+V: Dán với định dạng (tên cho file code)
-^!v:: {
+; CapsLock+F: Dán với định dạng (tên cho file code)
+CapsLock & f:: {
     if clipboardHistory.Length >= 2 {
         oldClip := ClipboardAll()
         A_Clipboard := clipboardHistory[2] . "_" . RemoveAccents(clipboardHistory[1]) . "."
@@ -93,16 +93,14 @@ RemoveAccents(str) {
     }
 }
 
-;---------CHROME------------------
-
 ; Chỉ hoạt động trong Chrome
 #HotIf WinActive("ahk_exe chrome.exe")
 
-; Alt+T: Chuyển đổi dịch trang web
-!t:: {
+; CapsLock+T: Chuyển đổi dịch trang web
+CapsLock & t:: {
     ; Tạm thời chặn đầu vào người dùng
     BlockInput("On")
-
+    
     ; Nhấp chuột phải
     MouseClick("Right")
     Sleep(50)   ; Delay 50ms
